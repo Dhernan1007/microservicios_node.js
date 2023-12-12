@@ -1,7 +1,7 @@
 const db = {
     'user': [
         { 
-            id: 1,
+            id: '1',
             name: 'Darwin',
             phone: 2418718502
         }
@@ -16,6 +16,10 @@ async function get(tabla, id) {
     return colectionData.filter( item => item.id === id)[0] || null
 }
 async function upsert(tabla, data) {
+
+    if (!db[tabla]){
+        db[tabla] = [];
+    }
     db[tabla].push(data)
 }
 function remove(tabla, id) {
