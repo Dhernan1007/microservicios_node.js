@@ -1,7 +1,7 @@
 {
   "name": "proyecto-backend-node",
   "version": "1.0.0",
-  "description": "",
+  "description": "instalar:",
   "main": "index.js",
   "scripts": {
     "start": "nodemon api/index.js",

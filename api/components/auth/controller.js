@@ -7,6 +7,16 @@ module.exports = function (injectedStore){
         store = require('../../../store/dummy');
     }
 
+   async function login(username, password){
+        const data = await store.query(TABLA, {username})
+        if(data.password === password){
+            //Generar token;
+            return 'TOKEN';
+        }else{
+            throw new Error('Información invalida');
+        }
+    }
+
     // de esta forma el identificador de usuario será igual al identificador de autenticación
     function upsert(data){
 
@@ -28,5 +38,6 @@ module.exports = function (injectedStore){
   //Devuelve la función a base de Datos que lo que devuelve es una promesa
     return{
         upsert,
+        login
     }
     };

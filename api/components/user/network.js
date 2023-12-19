@@ -18,7 +18,7 @@ router.put('/', upsert);
 function list(req, res) {
     Controller.list()
         .then((lista) => {
-            response.succes(req, res, lista, 200)
+            response.success(req, res, lista, 200)
         })
         .catch(err => {
             response.error(req, res, err.message, 500);
@@ -28,7 +28,7 @@ function list(req, res) {
 function get(req, res) {
     Controller.get(req.params.id)
         .then(user => {
-            response.succes(req, res, user, 200);
+            response.success(req, res, user, 200);
         })
         .catch(err => {
             response.error(req, res, err.message, 500);
@@ -37,7 +37,7 @@ function get(req, res) {
 
 function upsert(req, res) {
     Controller.upsert(req.body)
-        .then(user => {
+        .then((user) => {
             response.success(req, res, user, 201);
         })
         .catch((err) => {
